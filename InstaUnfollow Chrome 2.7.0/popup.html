@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="popup.css">
+  <title>InstaUnfollow</title>
+</head>
+<body>
+  <main class="wrap">
+    <div class="kicker">INSTAGRAM · LOCAL</div>
+    <h1>InstaUnfollow</h1>
+    <p class="intro">O painel flutuante aparece diretamente nas páginas do Instagram. Para importar o ZIP, abra o Instagram e use o painel InstaUnfollow no canto inferior direito. Esta janela serve como alternativa para atualizar ou remover a lista salva.</p>
+
+    <button id="openImportBtn">Abrir importador em nova aba (alternativa)</button>
+    <button id="refreshBtn" class="secondary">Aplicar cores na aba atual</button>
+    <button id="clearBtn" class="quiet">Remover lista salva</button>
+
+    <div class="status" id="status" role="status" aria-live="polite">Verificando lista salva…</div>
+
+    <div class="legend">
+      <div><span class="dot green"></span><span><strong>Verde</strong>, não está na lista de quem não segue você de volta, provável que siga você</span></div>
+      <div><span class="dot red"></span><span><strong>Vermelho</strong>, está na lista calculada, não segue você de volta</span></div>
+      <div><span class="dot yellow"></span><span><strong>Amarelo</strong>, perfil sem correspondência ou lista não carregada</span></div>
+    </div>
+    <small>O ZIP é processado localmente e não é enviado para nenhum servidor. A extensão não deixa de seguir pessoas automaticamente.</small>
+  </main>
+  <script src="browser-polyfill.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "InstaUnfollow",
+  "version": "2.7.0",
+  "description": "Importa o ZIP do Instagram diretamente na página, compara seguidores e seguindo localmente e colore os botões Seguindo.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*"
+      ],
+      "js": [
+        "jszip.min.js",
+        "instagram-colorizer.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "InstaUnfollow",
+    "default_popup": "popup.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "curadoria-seguindo@example.org",
+      "strict_min_version": "128.0"
+    }
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  }
+}

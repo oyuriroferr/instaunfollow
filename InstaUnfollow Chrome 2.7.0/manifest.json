@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "InstaUnfollow (Chrome)",
+  "version": "3.0.0",
+  "description": "Importa o ZIP oficial do Instagram, compara seguidores e seguindo localmente e colore os botões Seguindo.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*"
+      ],
+      "js": [
+        "browser-polyfill.js",
+        "jszip.min.js",
+        "instagram-colorizer.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "InstaUnfollow",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

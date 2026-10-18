@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="manager.css">
+  <title>Importar exportação · InstaUnfollow</title>
+</head>
+<body>
+  <main class="wrap manager-wrap">
+    <div class="kicker">INSTAGRAM · PROCESSAMENTO LOCAL</div>
+    <h1>Importar exportação do Instagram</h1>
+    <p class="intro">Selecione o ZIP original baixado pelo Instagram. A extensão vai localizar os arquivos JSON de seguidores e seguindo, calcular quem você segue e não segue você de volta e salvar o resultado na memória persistente da extensão.</p>
+
+    <section class="section">
+      <label for="file">Selecione o ZIP completo da exportação do Instagram</label>
+      <input id="file" type="file" accept=".zip,application/zip,application/x-zip-compressed">
+      <p class="hint">Na exportação do Instagram, escolha o formato JSON e inclua “Seguidores e seguindo”. O ZIP deve conter arquivos como <code>followers_1.json</code> e <code>following.json</code>, normalmente dentro de uma pasta chamada <code>connections/followers_and_following/</code>.</p>
+      <button id="importBtn" disabled>Importar ZIP e calcular a lista</button>
+    </section>
+
+    <div class="status" id="status" role="status" aria-live="polite">Verificando armazenamento persistente…</div>
+
+    <div class="actions">
+      <button id="refreshBtn" class="secondary">Reaplicar cores nas abas do Instagram</button>
+      <button id="clearBtn" class="quiet">Apagar lista salva</button>
+    </div>
+
+    <div class="legend">
+      <div><span class="dot green"></span><span><strong>Verde</strong>, não está na lista de quem não segue de volta, provável que siga você</span></div>
+      <div><span class="dot red"></span><span><strong>Vermelho</strong>, está na lista calculada, não segue você de volta</span></div>
+      <div><span class="dot yellow"></span><span><strong>Amarelo</strong>, perfil sem correspondência ou lista não carregada</span></div>
+    </div>
+    <small>O ZIP é processado inteiramente no seu navegador: nenhum arquivo é enviado a servidores externos. A extensão não executa unfollows. O resultado representa o estado no momento em que você solicitou a exportação.</small>
+  </main>
+  <script src="jszip.min.js"></script>
+  <script src="manager.js"></script>
+</body>
+</html>
